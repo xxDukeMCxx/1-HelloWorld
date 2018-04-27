@@ -1,0 +1,62 @@
+/* * {
+display: flex;
+flex-direction: column;
+}*/
+
+/* *:hover {
+    transform: none !important;
+}
+ */
+
+ body {
+     display: flex;
+     flex-direction: column;
+ }
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+    margin: 1rem;
+}
+
+.container#yImages {
+    width: 100vw;
+    height: 80vh;
+}
+
+h1 {
+    font-family: fantasy;
+    font-size: 3em;
+    border-bottom: 2px solid pink;
+    border-right: 2px solid pink;
+    width: 550px;
+    text-align: center;
+}
+
+h1:hover {
+    transform: rotate(3deg);
+    transition-duration: 500ms;
+}
+
+
+p {
+    background: burlywood;
+    margin: 0.5em 0em;
+    flex: 1;
+}
+
+img {
+    width: 450px;
+    height: 300px;
+    margin: 5px;
+    flex: auto;
+    object-fit: cover;
+}
+
+img:hover {
+    transform: scale(1.1, 1.1) rotate(8deg);
+    transition-duration: 500ms;
+}

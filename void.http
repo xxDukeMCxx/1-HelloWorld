@@ -1,0 +1,18 @@
+GET https://fonts.googleapis.com/css?family=Roboto HTTP/1.1
+Connection: Close
+User-Agent: VSCODE
+
+###
+
+HEAD http://www.google.fr HTTP/2
+Host: www.google.fr
+Connection: Close
+User-Agent: VSCODE
+
+
+
+
+###
+
+GET http://localhost:3000/ HTTP/1.1
+

@@ -1,0 +1,21 @@
+h2 {
+    font-size: 10rem;
+    text-align: center;
+}
+
+@mixin ShakeScaleAnim ($duration, $factor) {
+    animation-name: shakeApp;
+    animation-duration: $duration;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+    animation-fill-mode: backwards;
+    @keyframes shakeApp {
+        from {
+            transform: scale(1);
+        }
+        to {
+            transform: scale($factor);
+        }
+    }
+}

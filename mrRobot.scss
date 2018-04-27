@@ -1,0 +1,275 @@
+/* * VARS  * */
+
+$color: blue;
+$eyesColor: red;
+$headWith: 200px;
+$headTop: 200px;
+$headHeight: 125px;
+$eyesRadius: 20px;
+$torsoWidth: 200px;
+$torsoHeight: 200px;
+$torsoMarginUp: 10px;
+$armWidth: 40px;
+$armTorsoSpace: 15px;
+$armTopSpace: 15px;
+$legTorsoSpace: -5px;
+$legWidth: 40px;
+$legHeight: 120px;
+/* * Func * */
+
+@mixin shakeAnnim ($frameName) {
+    animation-name: $frameName;
+    animation-duration: 0.05s;
+    animation-play-state: running;
+    animation-delay: 0s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+body {
+    background: radial-gradient(red 5%, yellow 15%, black 60%);
+}
+
+@keyframes rotateX180 {
+    0% {
+        transform: rotateX(90deg) scale(0);
+    }
+    100% {
+        transform: rotateX(360deg) scale(1.5);
+        box-shadow: 1px 1px 3px darkblue, 0px 0px 15px $color, 0px 0px 25px lightblue;
+    }
+}
+
+h1 {
+    width: 300px;
+    height: 80px;
+    top: 40px;
+    position: fixed;
+    left: calc(50vw - 150px);
+    margin: 0 auto;
+    border: 2px solid darkblue;
+    border-radius: 50px 50px;
+    color: rgba(200, 200, 200, 0.3);
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    text-shadow: 1px 1px 3px darkblue, 0px 0px 15px $color, 0px 0px 25px lightblue;
+    animation-name: rotateX180;
+    animation-duration: 3s;
+    animation-play-state: running;
+    animation-delay: 0s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+}
+
+.robots {
+    min-height: 400px + $headTop + $headHeight + $torsoMarginUp + $torsoHeight + $legHeight + 250px;
+}
+
+.robots>*:not(.left_eye_cover):not(.left_eye):not(.right_eye) {
+    box-shadow: 4px 4px 10px rgba(200, 200, 200, 0.3);
+}
+
+.head,
+.left_arm,
+.torso,
+.right_arm,
+.left_leg,
+.right_leg {
+    background-color: $color;
+}
+
+/* HEAD */
+
+.head {
+    width: $headWith;
+    height: $headHeight;
+    top: $headTop;
+    border-radius: $headWith $headWith 0 0;
+    margin-bottom: 10px;
+    position: absolute;
+    left: calc(50vw - (#{$headWith}/2));
+    transition: 1s ease-in-out;
+}
+
+/*
+.head:hover {
+  transform: scalex(2) translateX(-1px);
+}
+
+.head:hover ~ .left_eye, .head:hover ~ .left_eye_cover   {
+  transform: scale(2) translate(-40px, -20px);
+}
+
+ .head:hover ~ .right_eye {
+     transform: scale(0.5) translate(+150px, +20px);
+}
+*/
+
+/* EYES */
+
+.left_eye,
+.left_eye_cover,
+.right_eye {
+    width: $eyesRadius;
+    height: $eyesRadius;
+    border-radius: calc(#{$eyesRadius} - 5px);
+    background-color: $eyesColor;
+    position: absolute;
+    transition: 1s ease-in-out;
+}
+
+.left_eye_cover {
+    height: 0px;
+    background-color: $color;
+}
+
+.left_eye,
+.left_eye_cover {
+    /* These properties are new and you haven't encountered
+	in this course. Check out CSS Tricks to see what it does! */
+    top: $headTop + $headHeight - 50px;
+    left: calc(50vw - #{$eyesRadius}/2 - (#{$headWith} / 6));
+}
+
+.left_eye_cover {
+    top: $headTop + $headHeight - 50px - 10px;
+}
+
+.left_eye:hover~.left_eye_cover,
+.left_eye_cover:hover {
+    /*background: linear-gradient(to bottom, $color, $eyesColor);*/
+    height: $eyesRadius+30px;
+}
+
+.right_eye {
+    top: $headTop + $headHeight - 50px;
+    left: calc(50vw - #{$eyesRadius}/2 + (#{$headWith}/ 6));
+}
+
+.right_eye:hover {
+    background: radial-gradient(red, yellow, green);
+}
+
+/** Torso **/
+
+.torso,
+.torsoIn {
+    position: absolute;
+    top: $headTop + $headHeight + $torsoMarginUp;
+    left: calc( 50vw - ( #{$torsoWidth} /2));
+    width: $torsoWidth;
+    height: $torsoHeight;
+    border-radius: 0 0 50px 50px;
+}
+
+.torsoInLine {
+    stroke: rgba(0, 200, 0, 0);
+    stroke-width: 8;
+    transition: all 2s ease;
+}
+
+.torsoIn:hover>.torsoInLine {
+    stroke: rgba(0, 200, 0, 1);
+}
+
+.torso:hover~.torsoIn>.torsoInLine {
+    stroke: rgba(0, 200, 0, 1);
+}
+
+/** ARMS **/
+
+.left_arm,
+.right_arm {
+    position: absolute;
+    width: $armWidth;
+    height: 125px;
+    border-radius: 100px;
+}
+
+.left_arm {
+    top: $headTop + $headHeight + $torsoMarginUp + $armTopSpace;
+    left: calc( 50vw - (#{$torsoWidth} /2) - #{$armWidth} - #{$armTorsoSpace});
+    transition: all 2s ease;
+    &:hover {
+        transform-origin: 50% 12px;
+        transform: rotate(120deg) scaleY(2);
+    }
+    &:hover~.right_arm {
+        transform-origin: 50% 12px;
+        transform: rotate(-120deg) scaleY(2);
+    }
+    &:hover~.left_leg {
+        transform: scaleY(2) translatey(30px) rotate(10deg);
+    }
+    &:hover~.right_leg {
+        transform: scaleY(2) translatey(30px) rotate(-10deg);
+    }
+    &:hover~.head {
+        transform: scaleY(2);
+    }
+}
+
+.right_arm {
+    top: $headTop + $headHeight + $torsoMarginUp + $armTopSpace;
+    left: calc( 50vw + (#{$torsoWidth} /2) + #{$armTorsoSpace});
+    transition: all 2s ease;
+    &:hover {
+        transform-origin: 50% 12px;
+        transform: rotate(120deg) scaleY(1.2);
+    }
+    &:hover~.left_leg {
+        transform-origin: 50% 12px;
+        transform: rotate(-120deg) scaleY(1.2);
+    }
+}
+
+/* * LEGS */
+
+.left_leg,
+.right_leg {
+    width: 40px;
+    height: 120px;
+    border-radius: 0 0 100px 100px;
+    position: absolute;
+    top: $headTop + $headHeight + $torsoMarginUp + $torsoHeight + $legTorsoSpace;
+    transition: all 1s ease;
+}
+
+.left_leg {
+    left: calc( 50vw - #{$legWidth} - #{$torsoWidth}/6);
+    ;
+}
+
+.left_leg:hover {
+    -webkit-transform: rotate(20deg);
+    -moz-transform: rotate(20deg);
+    -o-transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+    transform: rotate(20deg);
+}
+
+.right_leg {
+    left: calc( 50vw + #{$torsoWidth}/6);
+    ;
+}
+
+@keyframes ShakeIT {
+    0% {
+        top: $headTop + $headHeight + $torsoMarginUp + $torsoHeight + $legTorsoSpace - 1px;
+        left: calc( 50vw + #{$torsoWidth}/6 - 1px);
+    }
+    100% {
+        top: $headTop + $headHeight + $torsoMarginUp + $torsoHeight + $legTorsoSpace + 2px;
+        left: calc( 50vw + #{$torsoWidth}/6 + 2px);
+    }
+}
+
+.right_leg {
+    @include shakeAnnim (ShakeIT);
+}
+
+.right_leg:hover {
+    animation-play-state: paused;
+    animation-duration: 0s;
+}

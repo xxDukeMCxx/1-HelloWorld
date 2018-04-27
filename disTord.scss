@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|Roboto');
+
+html,
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(60, 60, 60);
+}
+
+
+.disTordApp {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(60, 60, 60);
+    color: cornsilk;
+    font-family: 'Raleway', sans-serif;
+
+    display: grid;
+    max-height: 100vh;
+    height: 100vh;
+    /*transition: all 0.2s;*/
+    animation-name: shakeApp;
+    animation-duration: 0.05s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: paused;
+    animation-fill-mode: backwards;
+
+    @keyframes shakeApp {
+        from {
+            transform: scale(1);
+        }
+        to {
+            transform: scale(0.995);
+        }
+    }
+
+}
+
+
+
+/* Si écran <800px */
+@media (max-width: 799px) {
+
+    .disTordApp {
+        grid-template-columns: [commus-start pubs-start chansList-start voiceControler-start commuTitle-start chanContent-start inputZone-start chanMembers-start mobileLink-start ] 1fr [ mobileLink-end chanTitle-start  ] 1fr [ commus-end commuTitle-end chansList-end voiceControler-end chanContent-end inputZone-end pubs-end chanTitle-end chanMembers-end ];
+        grid-template-rows: [pubs-start ] 3rem [pubs-end chanTitle-start mobileLink-start ] 3rem [chanTitle-end mobileLink-end commus-start commuTitle-start chansList-start chanContent-start chanMembers-start ] auto [ commus-end commuTitle-end chansList-end chanContent-end chanMembers-end inputZone-start ] 3rem [inputZone-end voiceControler-start ] 3rem [ voiceControler-end ];
+    }
+
+    .mobileLink {
+        grid-area: mobileLink;
+        display: flex;
+        flex-flow: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        align-content: stretch;
+        
+        & div {
+            margin: 5px;
+            background-color: darkgoldenrod;
+            border-radius: 20%;
+        }
+
+        & span {
+            text-decoration-line: none;
+            color: blue;
+        }
+
+        & #membersLink:hover {
+            
+        }
+    }
+
+    .commus {
+        display: none;
+        visibility: hidden;
+
+    }
+
+    .commuTitle {
+        display: none;
+        visibility: hidden;
+    }
+
+    .chansList {
+        display: none;
+        visibility: hidden;
+    }
+
+    .chanMembers {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+/* Si écran >=800px */
+@media (min-width: 800px) {
+
+    .disTordApp {
+        grid-template-columns: [commus-start] 5rem [commus-end pubs-start commuTitle-start chansList-start voiceControler-start] 14rem [commuTitle-end chansList-end voiceControler-end chanTitle-start chanContent-start inputZone-start] auto [chanContent-end inputZone-end chanMembers-start] 13rem [pubs-end chanTitle-end chanMembers-end];
+        grid-template-rows:    [commus-start pubs-start] 2rem [pubs-end commuTitle-start chanTitle-start] 2rem [commuTitle-end chanTitle-end chansList-start chanContent-start chanMembers-start] auto [chansList-end chanContent-end voiceControler-start inputZone-start]  3rem [commus-end voiceControler-end inputZone-end chanMembers-end];
+    }
+
+    .mobileLink {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+
+
+.commus {
+    grid-area: commus;
+    max-height: calc(100vh);
+    overflow: auto;
+    display: flex;
+    flex-flow: column;
+    flex-wrap: nowrap;
+    background-color: rgb(32, 34, 37);
+}
+
+.commuItem {
+    flex: 0;
+}
+
+.pubs {
+        grid-area: pubs;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+}
+
+.commuTitle {
+    grid-area: commuTitle;
+    display: flex;
+    margin: auto;
+
+}
+
+.chansList {
+    grid-area: chansList;
+    max-height: calc(100vh - 7rem);
+    overflow: auto;
+    display: flex;
+    flex-flow: column;
+    flex-wrap: nowrap;
+
+}
+
+.chanItem {
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px; 
+
+    &:before {
+            content: '> ';
+    }
+
+}
+
+.voiceControler {
+    grid-area: voiceControler;
+    padding: 5px;
+}
+
+
+.chanTitle {
+    grid-area: chanTitle;
+    display: flex;
+    margin: auto 10px;
+}
+
+.chanContent {
+    grid-area: chanContent;
+    max-height: calc(100vh - 7rem);
+    overflow: auto;
+}
+
+.chatItem {
+    margin: 10px;
+    padding: 5px 5px 5px 30px;
+}
+
+.chatSeparator {
+    border-top: 1px solid rgba(80,80,80,0.4);
+    /*border-bottom: 1px solid ;*/
+
+}
+
+.inputZone {
+    grid-area: inputZone;
+    
+    & #inputZone1 {
+        width: calc(100% - 1rem);
+        height: 2rem;
+        margin: 0.5rem;
+        border: none;
+        background: rgba(120,120,120,0.4);
+        border-radius: 0.5rem;
+        box-sizing: border-box;
+        padding: 0.5rem;
+        color: azure;
+
+    }
+    
+}
+
+.chanMembers {
+    grid-area: chanMembers;
+    max-height: calc(100vh - 5rem);
+    overflow: auto;
+    display: flex;
+    flex-flow: column;
+    flex-wrap: nowrap;
+    padding: 5px;
+}
+
+.chanMemberItem {
+    display: flex;
+
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    vertical-align: middle;
+    min-height: fit-content;
+
+
+    & img {
+         /* flex:0;
+         object-fit: cover; */
+    
+    }
+
+    & div {
+        margin-left: 10px;
+    }
+
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+    background:  rgba(40,40,40,1); 
+    border-radius: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(20,20,20,1); 
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background:  rgba(10,10,10,1); 
+    border-radius: 5px;
+}

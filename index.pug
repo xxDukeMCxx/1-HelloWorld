@@ -1,0 +1,50 @@
+doctype html
+
+html
+    head
+        title Duke Navigator
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        link(rel="stylesheet" href="animate.css")
+        link(rel="stylesheet" href="gulp/css/index.css")
+
+// Decalrations des pages ********************
+-
+    var yPages = {
+        "SassTest":"sassTest.HTML",
+        "Distord":"disTord.html",
+        "hello_design":"hello_design.html",
+        "mrRobot":"mrRobot.html",
+        "myFlex":"myFlex.html",
+        "test":"test.html",
+        "test2":"test2.html",
+        "ZtM-0":"ztm0/index.html",
+        "PugTest":"gulp/html/pugTest.html",
+        "RegExpTest":"RegExpTest.html",
+        }
+// ******************************************
+
+body
+    div
+        h1.animated.lightSpeedIn Duke Navigator
+
+    .container
+        each y_url, y_index in yPages
+            a.animated.fadeInUpBig(href="" + y_url)=y_index
+
+
+    //
+        a.animated.fadeInUpBig(href="sassTest.HTML") SassTest
+        a.animated.fadeInUpBig(href="disTord.html") Distord
+        a.animated.fadeInUpBig(href="hello_design.html") hello_design
+        a.animated.fadeInUpBig(href="mrRobot.html") mrRobot
+        a.animated.fadeInUpBig(href="myFlex.html") myFlex
+        a.animated.fadeInUpBig(href="test.html") test
+        a.animated.fadeInUpBig(href="test2.html") test2
+        a.animated.fadeInUpBig(href="ztm0/index.html") ZtM-0
+        a.animated.fadeInUpBig(href="gulp/html/pugTest.html") PugTest
+
+
+
+  

@@ -1,0 +1,51 @@
+
+.animated {
+    animation-fill-mode: none;  /* ANIME.CSS OVERRIDE TO ALLOW CUSTUM TRANSFORM */
+}
+
+body {
+    display: flex;
+    flex-flow: column;
+    background-color: rgb(37, 120, 192);
+    display: flex;
+    flex-wrap: nowrap;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    background-color: rgb(37, 120, 192);
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row;
+    justify-content: space-around;
+
+}
+
+
+a {
+    text-decoration-line: none;
+    padding: 15px;
+    font-size: 2rem;
+    color: azure;
+
+    &::before {
+        content: '[';
+    }
+
+    &::after {
+        content: ']';
+    }
+
+    &:hover {
+        color: black; 
+        transform: scale(1.2);
+        transition: all 0.5s ease; 
+    }
+
+}
+

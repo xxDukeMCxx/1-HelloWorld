@@ -1,0 +1,133 @@
+/* For ALL  *  */
+* {
+    text-align: left;
+}
+
+/* the !important is to break the cascading of CSS and say "that's the definitelvy value, whatever is say next..." NOT RECOMMANDED */
+* {
+
+    text-align: left !important;
+}
+
+/* for HTML element  ELEMENT */
+a {
+    color: antiquewhite;
+position: static;
+    top: auto;
+    display: flex;
+    box-sizing: content-box;
+    height: auto;
+    font: 600 sans-serif;
+
+
+}
+
+/* For setting same to multiple ELEMENT : Element1, Element2, Element3 */
+p, h6 {
+    font-size: 1.2em;
+
+}
+
+/* For Element wich are into another element (with unlimited parent between us), exemple, only p wich are into a div */
+/* Work for a p in a span in a div */
+div p {
+    color : blueviolet;
+
+}
+
+hr {
+    clear: both;
+}
+
+/* for CLASS element  .CLASS */
+.dukec2 {
+    color: coral;
+    float: left;
+
+}
+
+
+
+/* For Element wich have a define Parent, exemple only img in container of dukec2 class : .dukec2 > img */
+.dukec2 > img {
+    border : 10px inset rgba(40,80,120,0.6);
+    max-width: 300px;
+    
+}
+
+/* For Element wich is exactly AFTER an antoher element , exemple only  P just after a H2 :  h2 + p */
+/* Work for :
+<div>
+    <h2> My Title </h2>
+    <p> Ipsom patatrad k jq ddjidjz f </p>
+</div>
+*/
+
+h1 {
+    font-family: 'Indie Flower', cursive;
+}
+
+h2 + p {
+
+    color : lightgreen;
+}
+
+/* for all element, where mouse is over :hover */
+p:hover {
+    background-color: khaki;
+}
+
+
+/* only for the last child of a group, : last-child */
+li:last-child {
+color : magenta;
+font-size: 2vw ;
+}
+
+li:first-child {
+    color : magenta;
+    font-size: 0.5vw ;
+
+}
+
+
+/* for ID element  #ID */
+#mylist1 {
+    border : 2px dashed;
+}
+
+/*  Only for HTML element with specified data attribute */
+/* (make use of data-* attribute of HTML5 */
+/* example
+
+<ul>
+  <li data-quantity="1kg" data-vegetable>Tomatoes</li>
+  <li data-quantity="3" data-vegetable>Onions</li>
+  <li data-quantity="3" data-vegetable>Garlic</li>
+  <li data-quantity="700g" data-vegetable="not spicy like chili">Red pepper</li>
+  <li data-quantity="2kg" data-meat>Chicken</li>
+  <li data-quantity="optional 150g" data-meat>Bacon bits</li>
+  <li data-quantity="optional 10ml" data-vegetable="liquid">Olive oil</li>
+  <li data-quantity="25cl" data-vegetable="liquid">White wine</li>
+</ul>
+
+[data-vegetable] {
+  color: green;
+}
+
+ All elements with the attribute "data-vegetable"
+   with the exact value "liquid" are given a golden
+   background color
+   [data-vegetable="liquid"] {
+    background-color: goldenrod;
+  }
+  
+All elements with the attribute "data-vegetable",
+     containing the value "spicy", even among others,
+     are given a red text color
+  [data-vegetable~="spicy"] {
+    color: red;
+  }
+
+*/
+

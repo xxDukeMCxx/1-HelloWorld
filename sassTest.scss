@@ -1,0 +1,53 @@
+$version: "0.0.1";
+// --------
+// global variable 
+$rgba-primary-0: rgba(170, 57, 57, 1); // Main Primary color */
+$rgba-primary-1: lighten($rgba-primary-0, 20%);
+$rgba-primary-2: lighten($rgba-primary-0, 40%);
+$rgba-primary-3: darken($rgba-primary-0, 10%);
+$rgba-primary-4: darken($rgba-primary-0, 30%);
+
+
+/*$rgba-primary-1: rgba(255, 170, 170, 1);
+$rgba-primary-2: rgba(212, 106, 106, 1);
+$rgba-primary-3: rgba(128, 21, 21, 1);
+$rgba-primary-4: rgba( 85, 0, 0, 1);*/
+
+//mono line comment, don't render in hte CSS File
+
+/*
+    Multi line comment, render in the CSS file
+    Library version : #{$version}   
+*/
+
+@import "sassTestPartial";
+
+
+%no-mar-pad {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    @extend %no-mar-pad;
+    background-color: $rgba-primary-2;
+    color: $rgba-primary-1;
+    @include ShakeScaleAnim (1.5s, 0.99);
+
+    p {
+        color: rgba($rgba-primary-4,0.5);
+    }
+    
+    $aLocalVariable: 1;         //local variable
+    $aLocalVariableSetAsGlobal: 2 !global; //a localy declared variable but set as Global 
+    
+}
+
+
+p {
+    font: {   /* NESTED PROPERTIES*/
+       size: 5rem;
+       weight: bold;
+    }
+}

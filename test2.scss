@@ -1,0 +1,41 @@
+* {
+
+}
+
+html {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.coverImage {
+    width: 100%;
+    height : 90vh;
+    display: flex;
+}
+
+.coverImage img {
+    width: 100%;
+    object-fit: cover;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 10vh;
+    min-height: 3rem;
+    background-color: darkblue;
+}
+
+
+
+section {
+width: 100%;
+
+}
