@@ -1,1 +1,2 @@
-Master modif after branch1 stash
+branch 1 modif
+second ajout branch 1 modif aprés rebase avec master
