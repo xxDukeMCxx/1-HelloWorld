@@ -1,4 +1,6 @@
 <<<<<<< HEAD
 branch 1 modif
+second ajout branch 1 modif aprés rebase avec master
 =======
+branch 2 change this while long time far after multiple modifs in branch1 and MASTER, etc.....
 >>>>>>> branch2
