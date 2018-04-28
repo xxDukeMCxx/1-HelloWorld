@@ -1,2 +1,4 @@
 branch 1 modif
 second ajout branch 1 modif aprés rebase avec master
+
+branch1 new modif after first merge with master......
